@@ -1,6 +1,7 @@
 package com.panerotti.mattia.salestaxes.utils;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import com.panerotti.mattia.salestaxes.beans.Product;
 
@@ -22,7 +23,7 @@ public class Utils {
 				taxPercentage = taxPercentage + Constants.TAX_IMPORT_GOODS;
 			}
 			if(taxPercentage != 0.0)
-				taxImport = ((double) (long) ( new BigDecimal((p.getQuantity() * p.getPrice() * taxPercentage) / 100).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue() * 20 + 0.5)) / 20;
+				taxImport =  round(new BigDecimal((p.getQuantity() * p.getPrice() * taxPercentage) / 100),new BigDecimal(0.05),RoundingMode.UP).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 			
 		}else {
 			//launch error?
@@ -30,5 +31,16 @@ public class Utils {
 		
 		return taxImport;
 		
+	}
+	
+	public static BigDecimal round(BigDecimal value, BigDecimal increment,  RoundingMode roundingMode) {
+		if (increment.signum() == 0) {
+			// 0 increment does not make much sense, but prevent division by 0
+			return value;
+		} else {
+			BigDecimal divided = value.divide(increment, 0, roundingMode);
+			BigDecimal result = divided.multiply(increment);
+			return result;
+		}
 	}
 }
