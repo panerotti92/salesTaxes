@@ -13,6 +13,12 @@ import com.panerotti.mattia.salestaxes.beans.Check;
 import com.panerotti.mattia.salestaxes.beans.Product;
 import com.panerotti.mattia.salestaxes.services.CalculateTaxesService;
 
+/**
+ * This is a controller layer for calculate taxes.
+ * @author mattia.panerotti
+ *
+ */
+
 @Controller   
 public class CalculateTaxesController {
 	

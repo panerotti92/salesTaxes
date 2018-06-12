@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import com.panerotti.mattia.salestaxes.beans.Product;
+/**
+ * This is a utils class for helper calculate taxes.
+ * @author mattia.panerotti
+ *
+ */
 
 public class Utils {
 

@@ -10,7 +10,11 @@ import org.springframework.stereotype.Component;
 import com.panerotti.mattia.salestaxes.beans.Check;
 import com.panerotti.mattia.salestaxes.beans.Product;
 import com.panerotti.mattia.salestaxes.utils.Utils;
-
+/**
+ * This is a services layer for calculate taxes.
+ * @author mattia.panerotti
+ *
+ */
 @Component
 public class CalculateTaxesService {
 
